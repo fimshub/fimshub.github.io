@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HUB</title>
+  <title>Callback Page</title>
   <style>
     body {
       padding: 0;
@@ -16,7 +16,14 @@
 
   <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase.js"></script>
 
-  <script src="main.js"></script>
+  <script src="cb.js"></script>
+
+  <script>
+    getToken().then(nothing => {
+      console.log('token gotten');
+      window.location = index.html;
+    });
+  </script>
 </head>
 
 
