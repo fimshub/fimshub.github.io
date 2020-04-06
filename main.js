@@ -31,7 +31,7 @@ function setToken() {
     });
   });
   if (refToken == null) {
-    redirectToLogin();
+    //redirectToLogin();
   }
 }
 
