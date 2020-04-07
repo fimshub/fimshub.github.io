@@ -9,6 +9,7 @@ let refToken = null;
 
 function setup() {
   setToken();
+  setInterval(setToken, 1200000)
 }
 
 function draw() {
@@ -31,7 +32,7 @@ function setToken() {
     });
   });
   if (refToken == null) {
-    //redirectToLogin();
+    redirectToLogin();
   }
 }
 
