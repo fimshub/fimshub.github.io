@@ -30,7 +30,7 @@ function setToken() {
       authToken = data.authToken;
       refToken = data.refToken;
       console.log(authToken + ' ' + refToken);
-      if (refToken == null) {
+      if (refToken == "null") {
         console.log('redirecting to login');
         redirectToLogin();
       }
