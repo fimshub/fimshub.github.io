@@ -29,11 +29,11 @@ function setToken() {
     response.json().then(data => {
       authToken = data.authToken;
       refToken = data.refToken;
+      if (refToken == null) {
+        redirectToLogin();
+      }
     });
   });
-  if (refToken == null) {
-    redirectToLogin();
-  }
 }
 
 function redirectToLogin() {
