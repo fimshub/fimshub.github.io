@@ -29,7 +29,9 @@ function setToken() {
     response.json().then(data => {
       authToken = data.authToken;
       refToken = data.refToken;
+      console.log(authToken + ' ' + refToken);
       if (refToken == null) {
+        console.log('redirecting to login');
         redirectToLogin();
       }
     });
