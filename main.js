@@ -8,6 +8,7 @@ let authToken = null;
 let refToken = null;
 
 function setup() {
+  console.log("1");
   setToken();
   setInterval(setToken, 1200000)
 }
