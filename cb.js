@@ -26,6 +26,6 @@ async function getToken() {
     },
     body: JSON.stringify(code)
   };
-  const response = await fetch('http://69.142.173.103:3001/incomingAuthCode', payload);
+  const response = await fetch('https://fimsbackend.azurewebsites.net/incomingAuthCode', payload);
   const data = await response.json();
 }

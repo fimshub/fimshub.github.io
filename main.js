@@ -24,7 +24,7 @@ function setToken() {
     },
     body: JSON.stringify(send)
   };
-  fetch('http://69.142.173.103:3001/getAuthToken', payload).then(response => {
+  fetch('https://fimsbackend.azurewebsites.net/getAuthToken', payload).then(response => {
     response.json().then(data => {
       authToken = data.authToken;
       refToken = data.refToken;
