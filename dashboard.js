@@ -357,8 +357,8 @@ function addToCart(dict, tok) {
         "upc": productID,
         "quantity": quantity
       };
+      items_list.push(item_dict);
     }
-    items_list.push(item_dict);
   })
 
   console.log(items_list);
