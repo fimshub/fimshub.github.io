@@ -257,6 +257,7 @@ function mouseClicked() {
   if (mouseX > ULCRecInf[0] + dimsRecInf[0] * 1 / 20 && mouseX < ULCRecInf[0] + dimsRecInf[0] * 1 / 20 + dimsRecInf[0] * 18 / 20) {
     if (mouseY > ULCRecInf[1] + dimsRecInf[1] * 4 / 5 && mouseY < ULCRecInf[1] + dimsRecInf[1] * 4 / 5 + dimsRecInf[1] * 1 / 5 - (dimsRecInf[0] * 1 / 20)) {
       var missingList = missing_ingredients(currentStatus, selectedRecipe);
+      console.log(missingList);
       addToCart(missingList, authToken);
       addToConsole("Items added to cart");
     }
@@ -337,16 +338,29 @@ function addToCart(dict, tok) {
   }
   var items_list = [];
 
-  for (var key in dict) {
-    productID = productIDList[key];
-    quantity = dict[key];
+  // for (var key in dict) {
+  //   productID = productIDList[key];
+  //   quantity = dict[key];
+  //
+  //   item_dict = {
+  //     "upc": productID,
+  //     "quantity": quantity
+  //   };
+  //   items_list.push(item_dict);
+  // };
 
-    item_dict = {
+  Object.entries(dict).forEach(([key, value]) => {
+    var productID = productIDList[key];
+    var quantity = value;
+
+    var item_dict = {
       "upc": productID,
       "quantity": quantity
     };
     items_list.push(item_dict);
-  };
+  })
+
+  console.log(items_list);
 
   var data = {
     "items": items_list
