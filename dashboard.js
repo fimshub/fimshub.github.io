@@ -9,6 +9,8 @@ let thickFont;
 let regFont;
 let currentStatus = [0, 0, 0, 0, 0, 0];
 
+let calibrated = false;
+
 let selectedRecipe = null;
 
 let imgHeight;
@@ -222,21 +224,26 @@ function mouseClicked() {
       //calibrate button is being used
       console.log("calibrate pressed");
       addToConsole("Calibration Complete.");
+      calibrated = true;
     }
     if (mouseY > imgHeight + 60 + (windowHeight - (imgHeight + 40)) / 3 - 20 && mouseY < imgHeight + 60 + (windowHeight - (imgHeight + 40)) / 3 - 20 + (windowHeight - (imgHeight + 40)) / 3 * 2 - 20) {
       //scan button is being used
       console.log("scan pressed");
-      addToConsole("Scanning...");
-      sleep(3000).then(() => {
-        addToConsole("Fridge contents:");
-        currentStatus = ims[toDisplay];
-        for (var i = 0; i < ims[toDisplay].length; i++) {
-          if (ims[toDisplay][i] > 0) {
-            var consoleAddition = ims[toDisplay][i] + "x " + foodItems[i];
-            addToConsole(consoleAddition);
+      if (calibrated == true) {
+        addToConsole("Scanning...");
+        sleep(3000).then(() => {
+          addToConsole("Fridge contents:");
+          currentStatus = ims[toDisplay];
+          for (var i = 0; i < ims[toDisplay].length; i++) {
+            if (ims[toDisplay][i] > 0) {
+              var consoleAddition = ims[toDisplay][i] + "x " + foodItems[i];
+              addToConsole(consoleAddition);
+            }
           }
-        }
-      })
+        })
+      } else {
+        addToConsole("Please Calibrate.")
+      }
     }
   }
 
