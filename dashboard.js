@@ -352,11 +352,12 @@ function addToCart(dict, tok) {
   Object.entries(dict).forEach(([key, value]) => {
     var productID = productIDList[key];
     var quantity = value;
-
-    var item_dict = {
-      "upc": productID,
-      "quantity": quantity
-    };
+    if (quantity != 0) {
+      var item_dict = {
+        "upc": productID,
+        "quantity": quantity
+      };
+    }
     items_list.push(item_dict);
   })
 
