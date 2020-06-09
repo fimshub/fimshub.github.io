@@ -1,4 +1,4 @@
-const clientID = 'fims-062a4c23a50918e9f3cbc208a42e08647653895110161406010'
+const clientID = 'newfims-490001e0fab42ea0c747314ad3b97f77327513932967352894'
 const oauth2BaseURL = 'https://api.kroger.com/v1/connect/oauth2'
 const apiBaseURL = 'https://api.kroger.com'
 const redirectURL = 'https://fimshub.github.io/cb.html'
